@@ -49,13 +49,19 @@ public class Race {
     }
 
     private void sortVehiclesByDistanceCovered() {
-        vehicleList.sort(new Comparator<Vehicle>() {
-            @Override
-            public int compare(Vehicle o1, Vehicle o2) {
-                return o2.getDistanceTraveled() - o1.getDistanceTraveled();
-            }
-        });
+        vehicleList.sort((o1, o2) -> o2.getDistanceTraveled() - o1.getDistanceTraveled());
     }
+
+    // Same thing without lambda
+//    private void sortVehiclesByDistanceCovered() {
+//        vehicleList.sort(new Comparator<Vehicle>() {
+//            @Override
+//            public int compare(Vehicle o1, Vehicle o2) {
+//                return o2.getDistanceTraveled() - o1.getDistanceTraveled();
+//            }
+//        });
+//    }
+
 
     private void printRaceResults() {
         // prints each vehicle's name, distance traveled ant type.
