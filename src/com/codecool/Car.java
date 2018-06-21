@@ -42,26 +42,27 @@ public class Car implements Vehicle {
     }
 
     @Override
-    int getNormalSpeed() {
+    public int getNormalSpeed() {
         return normalSpeed;
     }
 
     @Override
-    int getTopSpeed() {
+    public int getTopSpeed() {
         return topSpeed;
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return name;
     }
 
     @Override
-    int getDistanceTraveled() {
+    public int getDistanceTraveled() {
         return distanceTraveled;
     }
 
-    VehicleType getVehicleType() {
+    @Override
+    public VehicleType getVehicleType() {
         return vehicleType;
     }
 

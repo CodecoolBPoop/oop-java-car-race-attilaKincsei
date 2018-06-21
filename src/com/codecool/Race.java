@@ -63,12 +63,7 @@ public class Race {
         Race firstRace = new Race(50);
         firstRace.createVehicles();
         firstRace.simulateRace();
-        for (Vehicle vehicle :
-                firstRace.vehicleList) {
-            System.out.printf("%s travelled: %d kms", vehicle.getName(), vehicle.getDistanceTraveled());
-            System.out.println();
-        }
-//        firstRace.printRaceResults();
+        firstRace.printRaceResults();
 
     }
 

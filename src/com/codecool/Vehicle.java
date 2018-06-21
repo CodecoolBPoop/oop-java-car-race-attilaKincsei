@@ -2,6 +2,8 @@ package com.codecool;
 
 interface Vehicle {
 
+    VehicleType vehicleType = null;
+
     int getNormalSpeed();
 
     int getTopSpeed();

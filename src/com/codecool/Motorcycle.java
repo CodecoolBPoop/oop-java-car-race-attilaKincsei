@@ -2,7 +2,7 @@ package com.codecool;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Motorcycle extends Vehicle {
+public class Motorcycle implements Vehicle {
 
     static final VehicleType vehicleType = VehicleType.MOTORCYCLE;
 
@@ -32,7 +32,7 @@ public class Motorcycle extends Vehicle {
     }
 
     @Override
-    void moveForAnHour(Race race) {
+    public void moveForAnHour(Race race) {
         // speed is 100km/h. If it rains, travels with 5-50km/h slower (randomly).
        if (race.isRaining) {
            currentSpeed = normalSpeed;
@@ -43,32 +43,28 @@ public class Motorcycle extends Vehicle {
         }
     }
 
-    int getCurrentSpeed() {
-        return currentSpeed;
-    }
-
     @Override
-    int getNormalSpeed() {
+    public int getNormalSpeed() {
         return normalSpeed;
     }
 
     @Override
-    int getTopSpeed() {
+    public int getTopSpeed() {
         return topSpeed;
     }
 
     @Override
-    String getName() {
+    public String getName() {
         return name;
     }
 
     @Override
-    int getDistanceTraveled() {
+    public int getDistanceTraveled() {
         return distanceTraveled;
     }
 
     @Override
-    VehicleType getVehicleType() {
+    public VehicleType getVehicleType() {
         return vehicleType;
     }
 
@@ -78,6 +74,10 @@ public class Motorcycle extends Vehicle {
 
     MotorcycleModel getModel() {
         return model;
+    }
+
+    int getCurrentSpeed() {
+        return currentSpeed;
     }
 
 

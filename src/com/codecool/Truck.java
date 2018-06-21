@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Truck extends Vehicle {
+public class Truck implements Vehicle {
 
     static final VehicleType vehicleType = VehicleType.TRUCK;
 
@@ -44,7 +44,8 @@ public class Truck extends Vehicle {
 
     }
 
-    void moveForAnHour(Race race) {
+    @Override
+    public void moveForAnHour(Race race) {
         if (breakdownTurnsLeft == 0) {
             int decideBreakDown = ThreadLocalRandom.current().nextInt(1, 100);
             if (decideBreakDown > 5 && decideBreakDown < 101) {
@@ -71,6 +72,31 @@ public class Truck extends Vehicle {
         }
     }
 
+    @Override
+    public int getDistanceTraveled() {
+        return distanceTraveled;
+    }
+
+    @Override
+    public int getNormalSpeed() {
+        return 0;
+    }
+
+    @Override
+    public int getTopSpeed() {
+        return 0;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
     boolean isBrokenDown() {
         return isBrokenDown;
     }
@@ -85,30 +111,5 @@ public class Truck extends Vehicle {
 
     List<Integer> getNameNumbers() {
         return nameNumbers;
-    }
-
-    @Override
-    int getDistanceTraveled() {
-        return distanceTraveled;
-    }
-
-    @Override
-    int getNormalSpeed() {
-        return 0;
-    }
-
-    @Override
-    int getTopSpeed() {
-        return 0;
-    }
-
-    @Override
-    String getName() {
-        return this.name;
-    }
-
-    @Override
-    VehicleType getVehicleType() {
-        return vehicleType;
     }
 }
