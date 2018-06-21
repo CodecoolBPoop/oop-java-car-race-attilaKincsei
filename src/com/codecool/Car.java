@@ -2,7 +2,7 @@ package com.codecool;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Car extends Vehicle {
+public class Car implements Vehicle {
 
     static final VehicleType vehicleType = VehicleType.CAR;
 
@@ -29,7 +29,7 @@ public class Car extends Vehicle {
     }
 
     @Override
-    void moveForAnHour(Race race) {
+    public void moveForAnHour(Race race) {
         // The vehicle travels for an hour. It increases the distance traveled. Call this from the main class only!
         // If there is a broken down Truck on the track, then limit the max speed of vehicles to 75 km/h.
         if (!race.isThereABrokenTruck()) {

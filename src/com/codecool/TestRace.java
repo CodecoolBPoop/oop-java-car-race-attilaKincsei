@@ -13,13 +13,13 @@ public class TestRace {
 
         Car car1  = new Car(CarModel.BUGATTI_VEYRON_SUPER_SPORT);
         System.out.println(car1.distanceTraveled);
-        car1.moveForAnHour(new Race());
+        car1.moveForAnHour(new Race(10));
         System.out.println(car1.distanceTraveled);
 
         Motorcycle motorcycle1 = new Motorcycle(MotorcycleModel.KAWASAKI_NINJA_H2R);
         System.out.println(motorcycle1.distanceTraveled);
         Weather.setRaining();
-        motorcycle1.moveForAnHour(new Race());
+        motorcycle1.moveForAnHour(new Race(10));
         System.out.println(motorcycle1.distanceTraveled);
     }
 }

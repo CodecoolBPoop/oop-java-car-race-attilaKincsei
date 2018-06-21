@@ -71,10 +71,6 @@ public class Truck extends Vehicle {
         }
     }
 
-    VehicleType getVehicleType() {
-        return vehicleType;
-    }
-
     boolean isBrokenDown() {
         return isBrokenDown;
     }
@@ -109,5 +105,10 @@ public class Truck extends Vehicle {
     @Override
     String getName() {
         return this.name;
+    }
+
+    @Override
+    VehicleType getVehicleType() {
+        return vehicleType;
     }
 }

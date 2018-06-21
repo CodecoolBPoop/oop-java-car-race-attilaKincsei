@@ -67,6 +67,7 @@ public class Motorcycle extends Vehicle {
         return distanceTraveled;
     }
 
+    @Override
     VehicleType getVehicleType() {
         return vehicleType;
     }

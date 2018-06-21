@@ -1,17 +1,16 @@
 package com.codecool;
 
-abstract class Vehicle {
+interface Vehicle {
 
-    Vehicle() {
-    }
+    int getNormalSpeed();
 
-    abstract int getNormalSpeed();
+    int getTopSpeed();
 
-    abstract int getTopSpeed();
+    VehicleType getVehicleType();
 
-    abstract String getName();
+    String getName();
 
-    abstract int getDistanceTraveled();
+    int getDistanceTraveled();
 
-    abstract void moveForAnHour(Race race);
+    void moveForAnHour(Race race);
 }
