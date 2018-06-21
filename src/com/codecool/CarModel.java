@@ -24,4 +24,6 @@ enum CarModel {
     int getTopSpeed() {
         return this.topSpeed;
     }
+
+    // TODO: HOW TO GET ENUM CONSTANTS BY ID?
 }

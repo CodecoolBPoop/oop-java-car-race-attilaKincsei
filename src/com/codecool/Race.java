@@ -1,19 +1,20 @@
 package com.codecool;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Race {
 
-    int numberOfLaps;
+    private int numberOfLaps;
     boolean isRaining;
-    List<Vehicle> vehicleList = new ArrayList<>();
+    private List<Vehicle> vehicleList = new ArrayList<>();
 
     public Race(int numberOfLaps) {
         this.numberOfLaps = numberOfLaps;
     }
 
-    void createVehicles() {
+    private void createVehicles() {
         // creates 10 cars, 10 trucks and 10 motorcycles.
         for (CarModel model:CarModel.values()) {
             Car newCar = new Car(model);
@@ -34,29 +35,36 @@ public class Race {
         return Truck.currentlyBrokenDown.size() != 0;
     }
 
-    void simulateRace() {
+    private void simulateRace() {
         // simulates the race by
         // - calling moveForAnHour() on every vehicle 50 times
         // - setting whether its raining
         for (int i = 0; i < numberOfLaps; i++) {
             Weather.setRaining();
             isRaining = Weather.isRaining();
-            for (int j = 0; j < vehicleList.size(); j++) {
-                vehicleList.get(j).moveForAnHour(this);
+            for (Vehicle aVehicleList : vehicleList) {
+                aVehicleList.moveForAnHour(this);
             }
         }
     }
 
-    void printRaceResults() {
+    private void sortVehiclesByDistanceCovered() {
+        vehicleList.sort(new Comparator<Vehicle>() {
+            @Override
+            public int compare(Vehicle o1, Vehicle o2) {
+                return o2.getDistanceTraveled() - o1.getDistanceTraveled();
+            }
+        });
+    }
+
+    private void printRaceResults() {
         // prints each vehicle's name, distance traveled ant type.
-        for (int j = 0; j < vehicleList.size(); j++) {
-            System.out.printf(
-                    "Name: %s. Distance Travelled: %d km. Vehicle Type: %s",
-                    vehicleList.get(j).getName(), vehicleList.get(j).getDistanceTraveled(),
-                    vehicleList.get(j).getVehicleType().name()
-            );
+        sortVehiclesByDistanceCovered();
+        vehicleList.forEach(vehicle -> {
+            System.out.printf("Name: %s. Distance Travelled: %d km. Vehicle Type: %s",
+                    vehicle.getName(), vehicle.getDistanceTraveled(), vehicle.getVehicleType().name());
             System.out.println();
-        }
+        });
     }
 
     public static void main(String[] args) {
