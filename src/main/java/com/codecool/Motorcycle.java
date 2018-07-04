@@ -34,7 +34,7 @@ public class Motorcycle implements Vehicle {
     @Override
     public void moveForAnHour(Race race) {
         // speed is 100km/h. If it rains, travels with 5-50km/h slower (randomly).
-       if (race.isRaining) {
+       if (!race.isRaining) {
            currentSpeed = normalSpeed;
            distanceTraveled += currentSpeed * 1;
         } else {

@@ -1,17 +1,21 @@
 package com.codecool;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
+// TODO: move common variables and methods to vehicle
+// TODO: refactor vehicle interface into abstract class
+// TODO: create an intermediate class between vehicle and its subclasses if needed
+// TODO: create a probability class for a probability method
 public class Race {
 
     private int numberOfLaps;
-    boolean isRaining;
+    boolean isRaining; // move into weather
     private List<Vehicle> vehicleList = new ArrayList<>();
 
     public Race(int numberOfLaps) {
         this.numberOfLaps = numberOfLaps;
+        createVehicles();
     }
 
     private void createVehicles() {
@@ -52,17 +56,6 @@ public class Race {
         vehicleList.sort((o1, o2) -> o2.getDistanceTraveled() - o1.getDistanceTraveled());
     }
 
-    // Same thing without lambda
-//    private void sortVehiclesByDistanceCovered() {
-//        vehicleList.sort(new Comparator<Vehicle>() {
-//            @Override
-//            public int compare(Vehicle o1, Vehicle o2) {
-//                return o2.getDistanceTraveled() - o1.getDistanceTraveled();
-//            }
-//        });
-//    }
-
-
     private void printRaceResults() {
         // prints each vehicle's name, distance traveled ant type.
         sortVehiclesByDistanceCovered();
@@ -75,7 +68,6 @@ public class Race {
 
     public static void main(String[] args) {
         Race firstRace = new Race(50);
-        firstRace.createVehicles();
         firstRace.simulateRace();
         firstRace.printRaceResults();
 

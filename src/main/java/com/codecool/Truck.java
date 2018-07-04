@@ -36,7 +36,7 @@ public class Truck implements Vehicle {
         this.model = model;
         Integer truckNumber;
         do {
-            truckNumber = ThreadLocalRandom.current().nextInt(0, 1000);
+            truckNumber = ThreadLocalRandom.current().nextInt(0, 1001);
         } while (nameNumbers.contains(truckNumber));
         nameNumbers.add(truckNumber);
         this.name = String.valueOf(truckNumber);
@@ -47,7 +47,7 @@ public class Truck implements Vehicle {
     @Override
     public void moveForAnHour(Race race) {
         if (breakdownTurnsLeft == 0) {
-            int decideBreakDown = ThreadLocalRandom.current().nextInt(1, 100);
+            int decideBreakDown = ThreadLocalRandom.current().nextInt(1, 101);
             if (decideBreakDown > 5 && decideBreakDown < 101) {
                 if (currentlyBrokenDown.contains(this)) {
                     currentlyBrokenDown.remove(this);
