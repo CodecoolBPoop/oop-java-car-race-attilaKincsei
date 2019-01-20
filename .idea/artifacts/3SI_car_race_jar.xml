@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="3SI-car-race:jar">
-    <output-path>$PROJECT_DIR$/target/artifacts/3SI_car_race_jar</output-path>
-    <root id="archive" name="3SI-car-race.jar">
-      <element id="module-output" name="3SI-car-race" />
-      <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/redist/annotations-java8.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
